@@ -1,6 +1,8 @@
 {
-  "ecmaVersion": "6",
-  "libs": [],
+  "ecmaVersion": "7",
+  "libs": [
+    "jquery"
+  ],
   "loadEagerly": [],
   "dontLoad": [
     "node_module/**"
@@ -8,6 +10,17 @@
   "plugins": {
     "doc_comment": true,
     "es_modules": {},
-    "commonjs": {}
+    "commonjs": {},
+    "modules": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "node_resolve": {}
   }
 }
