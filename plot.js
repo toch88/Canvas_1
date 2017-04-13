@@ -17,15 +17,14 @@ plot.prototype.DrawEmptyPlot=function(){
 
 plot.prototype.RenderGrid=function(){
 
-for (var i = 50; i <=this.widthOfPlot; i+=50) {
-
-  this.ctx.strokeStyle='white';
-  this.ctx.lineWidth = 0+i/50;
-  this.ctx.beginPath();
-  this.ctx.moveTo(5.5+i/50*14,5);
-  this.ctx.lineTo(5.5+i/50*14,140);
-  this.ctx.stroke();
-}
+  for (i=0;i<10;i++){
+     this.ctx.lineWidth = 1+i;
+     this.ctx.strokeStyle='white';
+     this.ctx.beginPath();
+     this.ctx.moveTo(5.5+i*14,5);
+     this.ctx.lineTo(5.5+i*14,140);
+     this.ctx.stroke();
+   }
 
 
 };
