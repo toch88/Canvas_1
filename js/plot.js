@@ -8,6 +8,7 @@ class plot{
     this.ctx.strokeStyle='silver';
     this.widthOfPlot=this.canvas.parentElement.clientWidth;
     this.heightOfPlot=this.canvas.parentElement.clientHeight;
+
     this.DrawEmptyPlot();
   }
   Draw(){}
@@ -31,7 +32,7 @@ class plot{
 
     for (var i=50;i<=this.heightOfPlot;i+=50){
        this.ctx.beginPath();
-       this.ctx.moveTo(0.5,0+i);
+       this.ctx.moveTo(0.5,0.5+i);
        this.ctx.lineTo(this.widthOfPlot,i+0.5);
        this.ctx.stroke();
      }
