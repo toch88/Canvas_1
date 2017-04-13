@@ -8,7 +8,7 @@ class Vector{
   }
 
   Deg2Rad(_deg){
-    return _deg*PI/180
+    return _deg*PI/180;
   }
 
   Rad2Deg(_rad){
