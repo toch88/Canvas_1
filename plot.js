@@ -13,7 +13,7 @@ plot.prototype.DrawEmptyPlot=function(){
   this.ctx.beginPath();
   this.ctx.strokeStyle='blue';
   this.ctx.moveTo(20,20);
-  this.ctx.line(200,20);
+  this.ctx.lineTo(200,20);
   this.ctx.stroke();
 };
 var myPlot=new plot(canvas);
