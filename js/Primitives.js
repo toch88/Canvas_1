@@ -1,7 +1,8 @@
 class Line extends PlotGenericItem{
   constructor(_size){
-    super("Linia", new Vector(0,0));
+    super("Linia", new Vector(100,100));
     this.size=_size;
+
     this.points=[this.position, new Vector(this.position.real+this.size.real, this.position.img+this.size.img)];
     this.Begin=this.points[0];
     this.End=this.points[1];
@@ -16,17 +17,47 @@ class Line extends PlotGenericItem{
 }
 
 class Triangle extends PlotGenericItem{
-  constructor(_size, _position){ //h of traingle
+  constructor(_size, _position, _deg){ //h of traingle
     if(_position===undefined){
       super("Linia", new Vector(0,0));
     }
-    else{
+    else{      
       super("Linia", _position);
     }
-    //  var b=h/(Math.cos(30*Math.PI/180));
-    //  var c=b*Math.sin(60*Math.PI/180);
 
-      this.points=[new Vector(-a/2,0), new Vector(a,0), new Vector(a/2, h)];
+    if(_deg === undefined){
+      this.deg = 0;
+    }
+    else{
+      this.deg = _deg;
+    }
+
+    var h = _size;
+
+    var b = h/(Math.cos(10*Math.PI/180));
+    var c = b*Math.cos(80*Math.PI/180);
+
+    this.pointsOfTriangle = [new Vector(0, 0),new Vector(-c,-h), new Vector(c,-h)];
+    this.points = [new Vector(0,0),new Vector(0,0),new Vector(0,0)];
+    this.Update();
+  }
+
+  Update(){
+    this.Rotate(this.deg);
+    this.Translate(this.position);
+  }
+
+  Translate(_move){
+    for (var i = 0; i < this.pointsOfTriangle.length; i++) {
+      this.points[i]=Vector.Add(_move, this.pointsOfTriangle[i]);
+    }
+  }
+
+  Rotate(deg){
+    for (var i = 0; i < this.pointsOfTriangle.length; i++) {
+        this.pointsOfTriangle[i].Rotate(deg);
+    }
+
   }
 
   Draw(ctx){

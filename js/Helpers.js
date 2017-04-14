@@ -15,6 +15,26 @@ class Vector{
     return _rad*180/Math.PI;
   }
 
+  static Add(v1,v2){
+    return new Vector(v1.real+v2.real, v1.img+v2.img);
+  }
+
+  static Sub(v1,v2){
+    return new Vector(v1.real-v2.real, v1.img-v2.img);
+  }
+
+  Rotate(_deg){
+    _deg=-_deg;
+    var real=this.real*Math.cos(_deg*Math.PI/180)+this.img*(-Math.sin(_deg*Math.PI/180));
+
+    var img=this.real*Math.sin(_deg*Math.PI/180)+this.img*Math.cos(_deg*Math.PI/180);
+
+
+    this.real=real;
+    this.img=img;
+
+   }
+
   CalculateMag(){
     this.mag=Math.sqrt(this.real*this.real+this.img*this.img);
   }
