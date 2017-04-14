@@ -5,6 +5,7 @@ class PlotGenericItemContainer {
     }
 
     Add(_plotGenericItem){
+      //_plotGenericItem.CalculateCoordinates();
       this.array.push(_plotGenericItem);
     }
 

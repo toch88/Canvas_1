@@ -4,7 +4,7 @@ class Plot{
     this.canvas = _canvas;
     this.ctx = this.canvas.getContext('2d');
     this.ctx.lineWidth = 1;
-    this.ctx.strokeStyle = '#666063';
+    this.ctx.strokeStyle = '#474345';
     this.widthOfPlot = this.canvas.parentElement.clientWidth;
     this.heightOfPlot = this.canvas.parentElement.clientHeight;
     this.Items = new PlotGenericItemContainer();
@@ -44,6 +44,6 @@ class Plot{
 }
 
 var myPlot=new Plot(canvas);
-var myArrow=new Arrow(new Vector(100,100));
+var myArrow=new Arrow(new Vector(50,50));
 myPlot.Items.Add(myArrow);
 myPlot.Draw();

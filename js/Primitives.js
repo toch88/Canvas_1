@@ -1,9 +1,9 @@
 class Line extends PlotGenericItem{
   constructor(_size){
-    super("Linia", new Vector(100,100));
+    super("Linia", new Vector(200,200));
     this.pointsOfItem=_size;
 
-    this.points=[this.position, new Vector(this.position.real+this.pointsOfItem.real, this.position.img+this.pointsOfItem.img)];
+    this.points=[this.position, new Vector(this.position.Real+this.pointsOfItem.Real, this.position.Img+this.pointsOfItem.Img)];
     this.Begin=this.points[0];
     this.End=this.points[1];
   }

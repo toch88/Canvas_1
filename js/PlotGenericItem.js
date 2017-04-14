@@ -1,14 +1,23 @@
 class PlotGenericItem {
   constructor(_name, _position){
+    this.offset=new Vector(250,-250);
     this.position=_position;
     this.points=[];
     this.name=_name;
     this.pointsOfItem=[];
   }
 
+  set Position(_value){
+    this.position=Vector.Add(_value, this.offset);
+  }
+
+  get Position(){
+    return this.position;
+  }
+
   Update(){
     this.Rotate(this.deg);
-    this.Translate(this.position);
+    this.Translate(this.Position);
   }
 
   Translate(_move){
