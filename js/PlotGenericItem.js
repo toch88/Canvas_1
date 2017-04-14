@@ -1,14 +1,10 @@
-import Vector from 'Helpers';
-
 class PlotGenericItem {
-  constructor() {
-    if (new.target === PlotGenericItem {
-      throw new TypeError("Cannot construct Abstract instances directly");
-    }
-
-    this.position=new Vector(5,5);
-
+  constructor(_name, _position){
+    this.position=_position;
+    this.name=_name;
   }
 
-
+  Draw(){
+    
+  }
 }

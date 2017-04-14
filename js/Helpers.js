@@ -3,16 +3,16 @@ class Vector{
     this.real=_real;
     this.img=_img;
 
-    CalculateMag();
-    CalculateDeg();
+    this.CalculateMag();
+    this.CalculateRadAndDeg();
   }
 
   Deg2Rad(_deg){
-    return _deg*PI/180;
+    return _deg*Math.PI/180;
   }
 
   Rad2Deg(_rad){
-    return _rad*180/PI;
+    return _rad*180/Math.PI;
   }
 
   CalculateMag(){
@@ -20,27 +20,24 @@ class Vector{
   }
   CalculateRadAndDeg(){
     this.rad=Math.atan2(this.img,this.real);
-    this.deg=this.rad*Rad2Deg();
+    this.deg=this.Rad2Deg(this.rad);
   }
 
-  set mag(_value){
+
+  set Mag(_value){
     this.real=_value*Math.cos(this.rad);
     this.img=value*Math.sin(this.rad);
     this.mag=_value;
   }
 
-  get mag(){return this.mag;}
-  get deg(){return this.deg;}
-  get rad(){return this.deg;}
-
-  set deg(_value){
+  set Deg(_value){
     this.deg=_value;
-    this.rad=Deg2Rad(this.deg);
+    this.rad=this.Deg2Rad(this.deg);
     this.real=this.mag*Math.cos(this.rad);
     this.img=this.mag*Math.sin(this.rad);
   }
 
-  set rad(_value){
-      deg(Rad2Deg(_value));
+  set Rad(_value){
+      this.Deg(this.Rad2Deg(_value));
   }
 }
