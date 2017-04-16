@@ -1,14 +1,18 @@
 class PlotGenericItem {
   constructor(_name, _position){
-    this.offset=new Vector(250,-250);
-    this.position=_position;
+    this.Position=_position;
     this.points=[];
-    this.name=_name;
     this.pointsOfItem=[];
+    this.name=_name;
+    this.offset=new Vector(0,0);
   }
 
   set Position(_value){
-    this.position=Vector.Add(_value, this.offset);
+    this.position=_value;
+  }
+
+  set Offset(_value){
+    this.offset=_value;
   }
 
   get Position(){
@@ -26,17 +30,32 @@ class PlotGenericItem {
     }
   }
 
+  RefTranslate(_move){
+    for (var i = 0; i < this.points.length; i++) {
+      this.points[i]=Vector.Add(_move,this.points[i]);
+    }
+  }
+
   Rotate(deg){
     for (var i = 0; i < this.pointsOfItem.length; i++) {
         this.pointsOfItem[i].Rotate(deg);
+        this.points[i]=Vector.Add(this.Position,this.pointsOfItem[i]);
     }
   }
 
   Draw(ctx){
     ctx.beginPath();
-    ctx.moveTo(this.points[0].real, this.points[0].img);
+
+    ctx.moveTo(
+      this.points[0].Real+this.offset.Real,
+      -this.points[0].Img+this.offset.Img
+    );
+
     for (var i = 1; i < this.points.length; i++) {
-        ctx.lineTo(this.points[i].real, this.points[i].img);
+        ctx.lineTo(
+          this.points[i].Real+this.offset.Real,
+          -this.points[i].Img+this.offset.Img
+        );
     }
   }
 }

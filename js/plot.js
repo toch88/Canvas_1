@@ -7,8 +7,11 @@ class Plot{
     this.ctx.strokeStyle = '#474345';
     this.widthOfPlot = this.canvas.parentElement.clientWidth;
     this.heightOfPlot = this.canvas.parentElement.clientHeight;
-    this.Items = new PlotGenericItemContainer();
-
+    this.verticalMiddle=this.widthOfPlot/2;
+    this.horizontalMiddle=this.heightOfPlot/2;
+    this.Items = new PlotGenericItemContainer(
+      new Vector(this.verticalMiddle,
+        this.horizontalMiddle));
   }
 
   Draw(){
@@ -42,8 +45,3 @@ class Plot{
      }
   }
 }
-
-var myPlot=new Plot(canvas);
-var myArrow=new Arrow(new Vector(50,50));
-myPlot.Items.Add(myArrow);
-myPlot.Draw();

@@ -1,11 +1,11 @@
 class PlotGenericItemContainer {
-    constructor(_plotId){
-      this.parentId=_plotId;
+    constructor(_vec){
+      this.offsetVec=_vec;
       this.array=[];
     }
 
     Add(_plotGenericItem){
-      //_plotGenericItem.CalculateCoordinates();
+      _plotGenericItem.Offset=new Vector(this.offsetVec.Real+0.5,this.offsetVec.Img+0.5);
       this.array.push(_plotGenericItem);
     }
 

@@ -1,5 +1,17 @@
-class A{
+class B{
+    constructor(){
+
+    }
+
+    Translate(){
+      console.log("wywołanie z klasy Parenta");
+    }
+}
+
+
+class A extends B{
   constructor(){
+    super();
     this.points=[1,2,3];
   }
 
@@ -14,8 +26,11 @@ class A{
         console.log(point);
       }
   }
+
+  Translate(){
+    super.Translate();
+  }
 }
 
 var test=new A();
-test.Update();
-test.Read();
+test.Translate();
